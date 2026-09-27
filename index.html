@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather Dashboard</title>
+<meta name="description" content="A dynamic weather dashboard with geolocation, 5-day forecast, hourly trends, and air quality gauges.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" defer></script>
+</head>
+<body>
+<h2 class="sr-only">Weather dashboard: search a city or use your location to see current conditions, a 5-day forecast, and hourly temperature and humidity charts.</h2>
+<div class="app">
+
+  <div class="topbar">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Search city..." autocomplete="off">
+      <div class="history-dropdown" id="historyDropdown"></div>
+    </div>
+    <button class="geo-btn" id="geoBtn" title="Use my location">📍 Locate me</button>
+    <div class="unit-toggle" id="unitToggle">
+      <button data-unit="metric" class="active">°C</button>
+      <button data-unit="imperial">°F</button>
+    </div>
+  </div>
+
+  <div id="errorArea"></div>
+
+  <div id="currentArea">
+    <div class="card"><div class="skeleton sk-current"></div></div>
+  </div>
+
+  <div class="card" id="forecastCard" style="display:none;">
+    <h3>5-day forecast</h3>
+    <div class="forecast-grid" id="forecastGrid"></div>
+  </div>
+  <div id="forecastSkeleton" class="card"><div class="skeleton sk-forecast"></div></div>
+
+  <div class="card" id="chartCard" style="display:none;">
+    <h3>24-hour temperature trend</h3>
+    <div class="chart-wrap"><canvas id="tempChart" role="img" aria-label="Line chart of hourly temperature for the next 24 hours"></canvas></div>
+  </div>
+  <div id="chartSkeleton" class="card"><div class="skeleton sk-chart"></div></div>
+
+  <div class="card" id="gaugeCard" style="display:none;">
+    <h3>Conditions</h3>
+    <div class="gauges" id="gaugesArea"></div>
+  </div>
+
+  <footer class="footer">
+    Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+  </footer>
+
+</div>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>

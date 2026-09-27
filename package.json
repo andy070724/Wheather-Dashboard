@@ -1,0 +1,18 @@
+{
+  "name": "weather-dashboard",
+  "version": "1.0.0",
+  "description": "A dynamic weather dashboard with geolocation, 5-day forecast, hourly trend charts, and radial gauges — powered by the free, keyless Open-Meteo API.",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 5173 .",
+    "start": "npx serve -l 5173 .",
+    "build": "echo 'No build step required — this is a static site. Deploy the repo as-is.'",
+    "deploy:vercel": "npx vercel --prod",
+    "deploy:netlify": "npx netlify deploy --prod --dir=."
+  },
+  "keywords": ["weather", "dashboard", "open-meteo", "javascript", "chartjs"],
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
